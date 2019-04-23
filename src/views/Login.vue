@@ -12,8 +12,8 @@ import { urlLogin } from '../../api'
 export default {
   methods: {
     getNavData () {
-      this.$_post(urlLogin, {}, {}).then(res => {
-        console.log(res)
+      this.$_get(urlLogin).then((res) => {
+        console.log(res.result)
       })
     }
   }

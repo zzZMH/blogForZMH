@@ -55,16 +55,7 @@ module.exports = {
     https: false,
     open: process.platform === 'darwin',
     hotOnly: false,
-    proxy: {
-      '/demo': {
-        target: 'http://127.0.0.1:8888/demo', // 需要请求的地址
-        changeOrigin: true, // 是否跨域
-        pathRewrite: {
-          '^/sell': '/' // 替换target中的请求地址，也就是说，在请求的时候，url用'/proxy'代替'http://ip.taobao.com'
-        }
-      }
-
-    },
+    proxy: null,
     before: app => {},
   },
   // PWA 插件相关配置

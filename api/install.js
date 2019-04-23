@@ -3,10 +3,9 @@ import {
   post
 } from './base'
 
-const install = function (Vue, config = {}) {
+const install = (Vue) => {
   Vue.prototype.$_get = get
   Vue.prototype.$_post = post
-  console.log(Vue.prototype)
 }
 
 export default install

@@ -1,41 +1,22 @@
 import axios from './config'
 import qs from 'qs'
 
-export const post = (url, data, extend = {
-  isJson: true,
-  cache: false
-}) => {
-  let defaultConfig = {
-    url,
-    method: 'POST',
-    data: extend.isJson ? data : qs.stringify(data)
-  }
-  let config = {
-    ...defaultConfig,
-    ...extend
-  }
-  return axios(config).then(res => {
-    Promise.resolve(res)
-  }, err => {
-    Promise.reject(err)
+export const get = (url) => {
+  return new Promise((resolve, reject) => {
+    axios.get(url).then((res) => {
+      resolve(res.data)
+    }).catch((err) => {
+      reject(err.data)
+    })
   })
 }
 
-export const get = (url, data, extend = {
-  cache: false
-}) => {
-  let defaultConfig = {
-    url,
-    method: 'GET',
-    params: data
-  }
-  let config = {
-    ...defaultConfig,
-    ...extend
-  }
-  return axios(config).then(res => {
-    Promise.resolve(res)
-  }, err => {
-    Promise.reject(err)
+export const post = (url, params) => {
+  return new Promise((resolve, reject) => {
+    axios.post(url, qs.stringify(params)).then((res) => {
+      resolve(res.data)
+    }).catch((err) => {
+      reject(err.data)
+    })
   })
 }
