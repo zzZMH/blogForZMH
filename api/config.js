@@ -6,6 +6,10 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 axios.interceptors.request.use((config) => {
+  if (config && config.headers) {
+    config.headers.token = 'zmh'
+  }
+  console.log(config)
   return config
 }, (error) => {
   return Promise.reject(error)
