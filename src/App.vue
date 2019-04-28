@@ -54,8 +54,8 @@
           </el-col>
         </el-row>
         <el-row type="flex" justify="center">
-          <el-col :span="17" class="bgColor borderRadius content" align="center">
-            <el-col :span="18" align="center">
+          <el-col :span="17" class="bgColor borderRadius content">
+            <el-col :span="18">
               <div class="contL">
                 <router-view/>
               </div>
